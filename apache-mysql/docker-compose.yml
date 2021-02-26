@@ -1,0 +1,19 @@
+version: '3.0'
+
+services:
+   web:
+      image: 'apachemysql'
+      ports:
+        - '8000:80'
+      volumes:
+        - "./public-html:/usr/local/apache2/htdocs"
+   mysql:
+        image: 'mysql:5.7'
+        ports:
+         - '3306:3306'
+        environment:
+         - MYSQL_ROOT_PASSWORD=paso
+        volumes:
+         - mysql-data:/var/lib/mysql
+volumes:
+  mysql-data:
